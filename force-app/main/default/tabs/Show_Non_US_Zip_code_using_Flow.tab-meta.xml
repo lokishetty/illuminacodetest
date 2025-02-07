@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Created by Lightning App Builder</description>
+    <flexiPage>Show_Non_US_Zip_code_using_Flow</flexiPage>
+    <label>Show Non US Zip code using Flow</label>
+    <motif>Custom60: Umbrella</motif>
+</CustomTab>

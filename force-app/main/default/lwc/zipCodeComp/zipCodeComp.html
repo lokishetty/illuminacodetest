@@ -1,0 +1,31 @@
+<template>
+    <lightning-card>
+        <lightning-layout>
+            <lightning-layout-item size="6">
+                <lightning-combobox 
+                    name="countryField"
+                    label={countryLabel}
+                    value={selectedCountry}
+                    options={picklistOptions}
+                    onchange={handleCountryChange}>
+                </lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" class="slds-p-left_small">
+                <lightning-input label={zipCodeLabel} value={zipCode} onchange={handleZipChange} class="searchZip"></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        
+        <lightning-button label={placeLabel} onclick={getPlaceInfo} disabled={disableSubmitButton}></lightning-button>
+        <!-- <template if:true={isResponseRecieved}>
+            <div class="slds-m-top_medium">
+                <p>result: {response}</p>
+            </div>
+        </template> -->
+        <template lwc:if={showNonUSLink}>
+            <p>Please <a onclick={navigateToRecord} target="_blank">Click Here</a> to Navigate created/Updated Record</p>
+        </template>
+    </lightning-card> 
+    <template if:true={showModalForUS}>
+        <c-modal-Cmp-For-U-S -country ={country} country-code={countryCode} place-name={placeName} -longitude={longitude} -state={state} state-code={stateCode} -latitude={latitude}  us-data ={result} zip-code={zipCode} onclosemodal={handleModalClose}></c-modal-Cmp-For-U-S>
+    </template>
+</template>
